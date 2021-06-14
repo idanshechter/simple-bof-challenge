@@ -5,7 +5,6 @@
 int main(int argc, char* argv[])
 {
 	int attempts = 0;
-
 	system("clear");
 
 	printf("\033[0;36m");
@@ -18,7 +17,7 @@ int main(int argc, char* argv[])
 	sleep(3);
 
 	while (attempts < 5) {
-		if (authenticate("CrackMe") != 0) {
+		if (authenticate(0xcafebeef) != 0) {
 			gg();
 			system("clear");
 			return 0;
@@ -45,10 +44,9 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-int authenticate(char* username)
+int authenticate(int username)
 {
-	int is_admin = 0;
-	char password[10];
+	char password[32];
 
 	printf("Enter password: ");
 	gets(password);
@@ -58,11 +56,12 @@ int authenticate(char* username)
 	 * Can this cause problems?
 	 */
 
-	if ((strcmp(username, "admin") == 0) && (strcmp(password, "admin") == 0)) {
-		is_admin = 1;
+	if (username == 0xfeedcafe) {
+		return 1;
 	}
 
-	return is_admin;
+	else return 0;
+
 }
 
 void print_colored(char* text, char* color)

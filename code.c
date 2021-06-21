@@ -17,7 +17,9 @@ int main(int argc, char* argv[])
 	sleep(3);
 
 	while (attempts < 5) {
-		authenticate(0xcafebeef);
+		if(authenticate(0xcafebeef) != 0)
+			gg();
+	
 		system("clear");
 		
 		print_colored("[x] Authentication failed, please wait.", "red");
@@ -27,6 +29,7 @@ int main(int argc, char* argv[])
 
 		if (attempts == 4) {
 			print_colored("[i] This is your last change! do your best!", "green");
+			gets(last_chance)
 		}
 
 		if (attempts == 5) {
@@ -43,6 +46,8 @@ int main(int argc, char* argv[])
 
 int authenticate(int username)
 {
+	int ret_value = 0;
+	int padding = 0;
 	char password[32];
 
 	printf("Enter password: ");
@@ -53,14 +58,12 @@ int authenticate(int username)
 	 * Can this cause problems?
 	 */
 
-	if (username == 0xfeedcafe) {
-		system("clear");
-		print_colored("You WIN!", "green");
-		sleep(5);
-		exit(0);
+	if ((username == 0xcafebeef) && (ret_value != 0)) {
+		if (padding == 0) 
+			ret_value;
+		else 
+			return 0;
 	}
-
-	else return 0;
 
 }
 
@@ -77,4 +80,12 @@ void print_colored(char* text, char* color)
 		printf("%s\n\n", text);
 		printf("\033[0;m");
 	}
+}
+
+void gg()
+{
+	system("clear");
+		print_colored("You WIN!", "green");
+		sleep(5);
+		exit(0);
 }

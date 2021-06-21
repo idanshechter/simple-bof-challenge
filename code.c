@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 	system("clear");
 
 	printf("\033[0;36m");
-	printf("\nYour mission is simple - crack this program!\n");
+	printf("\nYour mission is simple - crack this iprogram!\n");
 	printf("The code is in your hands,\n");
 	printf("find the vulnerability and exploit it to become system admin.\n");
 	printf("You have 5 tries, GOOD LUCK!\n\n");
@@ -17,14 +17,11 @@ int main(int argc, char* argv[])
 	sleep(3);
 
 	while (attempts < 5) {
-		if (authenticate(0xcafebeef) != 0) {
-			gg();
-			system("clear");
-			return 0;
-		} else {
-			print_colored("[x] Authentication failed, please wait.", "red");
-		}
+		authenticate(0xcafebeef);
+		system("clear");
 		
+		print_colored("[x] Authentication failed, please wait.", "red");
+	
 		++attempts;
 		sleep(1);
 
@@ -57,7 +54,7 @@ int authenticate(int username)
 	 */
 
 	if (username == 0xfeedcafe) {
-		return 1;
+		gg();
 	}
 
 	else return 0;
@@ -84,4 +81,5 @@ void gg()
 	system("clear");
 	print_colored("You WIN!", "green");
 	sleep(5);
+	exit(0);
 }

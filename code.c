@@ -5,6 +5,9 @@
 int main(int argc, char* argv[])
 {
 	int attempts = 0;
+	int key = 0;
+	char[10] password;
+	
 	system("clear");
 
 	printf("\033[0;36m");
@@ -17,10 +20,13 @@ int main(int argc, char* argv[])
 	sleep(3);
 
 	while (attempts < 5) {
-		if(authenticate(0xcafebeef) != 0)
-			gg();
-	
 		system("clear");
+		
+		printf("Enter password: ");
+		gets(password);
+		
+		if(key != 0)
+			gg();
 		
 		print_colored("[x] Authentication failed, please wait.", "red");
 	
@@ -42,29 +48,6 @@ int main(int argc, char* argv[])
 	}
 
 	return 0;
-}
-
-int authenticate(int username)
-{
-	int ret_value = 0;
-	int padding = 0;
-	char password[32];
-
-	printf("Enter password: ");
-	gets(password);
-	
-	/* Developer Note:
-	 * Compiler warning: the 'gets' function is dangerous and should not be used.
-	 * Can this cause problems?
-	 */
-
-	if ((username == 0xcafebeef) && (ret_value != 0)) {
-		if (padding == 0) 
-			ret_value;
-		else 
-			return 0;
-	}
-
 }
 
 void print_colored(char* text, char* color)

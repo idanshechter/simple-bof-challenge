@@ -1,12 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
+void gg();
+void print_colored(char* text, char* color);
+
 int main(int argc, char* argv[])
 {
-	int attempts = 0;
-	int key = 0;
-	char[10] password;
+	int attempts = 0, key = 0;
+	char password[10];
 	
 	system("clear");
 
@@ -25,8 +28,9 @@ int main(int argc, char* argv[])
 		printf("Enter password: ");
 		gets(password);
 		
-		if(key != 0)
-			gg();
+		if(key != 0) {
+				gg();
+		}
 		
 		print_colored("[x] Authentication failed, please wait.", "red");
 	
@@ -35,7 +39,6 @@ int main(int argc, char* argv[])
 
 		if (attempts == 4) {
 			print_colored("[i] This is your last change! do your best!", "green");
-			gets(last_chance)
 		}
 
 		if (attempts == 5) {

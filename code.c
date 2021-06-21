@@ -54,7 +54,10 @@ int authenticate(int username)
 	 */
 
 	if (username == 0xfeedcafe) {
-		gg();
+		system("clear");
+		print_colored("You WIN!", "green");
+		sleep(5);
+		exit(0);
 	}
 
 	else return 0;
@@ -74,12 +77,4 @@ void print_colored(char* text, char* color)
 		printf("%s\n\n", text);
 		printf("\033[0;m");
 	}
-}
-
-void gg() 
-{
-	system("clear");
-	print_colored("You WIN!", "green");
-	sleep(5);
-	exit(0);
 }

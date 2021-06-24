@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 		gets(password);
 		
 		if(key != 0) {
-				gg();
+			gg();
 		}
 		
 		print_colored("[x] Authentication failed, please wait.", "red");

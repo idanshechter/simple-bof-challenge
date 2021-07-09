@@ -14,13 +14,11 @@ int main(int argc, char* argv[])
 	system("clear");
 
 	printf("\033[0;36m");
-	printf("\nYour mission is simple - crack this iprogram!\n");
+	printf("\nYour mission is simple - crack this program!\n");
 	printf("The code is in your hands,\n");
 	printf("find the vulnerability and exploit it to become system admin.\n");
 	printf("You have 5 tries, GOOD LUCK!\n\n");
 	printf("\033[0:0m");
-
-	sleep(3);
 
 	while (attempts < 5) {
 		system("clear");
@@ -28,7 +26,7 @@ int main(int argc, char* argv[])
 		printf("Enter password: ");
 		gets(password);
 		
-		if(key == 0x0d0f0a0c) {
+		if(key == 0xbebe2ebd) {
 			gg();
 		}
 		

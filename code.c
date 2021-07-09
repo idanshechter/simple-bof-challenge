@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 		printf("Enter password: ");
 		gets(password);
 		
-		if(key == 0xbebe2ebd) {
+		if(key == 0xddaabe0f){
 			gg();
 		}
 		

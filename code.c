@@ -20,6 +20,8 @@ int main(int argc, char* argv[])
 	printf("You have 5 tries, GOOD LUCK!\n\n");
 	printf("\033[0:0m");
 
+	sleep(5);
+
 	while (attempts < 5) {
 		system("clear");
 		
